@@ -15,6 +15,7 @@
 # In[15]:
 
 
+
 print("""MENU:
          (0) Sair
          (1) Criar fração
@@ -27,39 +28,6 @@ print("""MENU:
          (8) Somar lista
          (9) Maior fração""")
 
-def opcao():
-    op = str(input("Insira um dos comandos do menu: "))
-    while op != '0':
-        if op == '1':
-            f = criarFracao()
-        elif op == '2':
-            print(verFracao(simplificarFracao(f)))
-        elif op == '3':
-            f = somarFracao()
-            print(verFracao(simplificarFracao(f)))
-        elif op == '4':
-            f = subtrairFracao()
-            print(verFracao(simplificarFracao(f)))
-        elif op == '5':
-            f = multiplicarFracao()
-            print(verFracao(simplificarFracao(f)))
-        elif op == '6':
-            f = dividirFracao()
-            print(verFracao(simplificarFracao(f)))
-        elif op == '7':
-            gerarLista()
-        elif op == '8':
-            f = somarLista(L)
-            print(verFracao(simplificarFracao(f)))
-        elif op == '9':
-            f = maiorLista(L)
-            print(f)
-        else:
-            print("Este número não está nas alternativas, tente novamente :D.\n")
-        op = str(input("Insira um dos comandos do menu: "))
-    if op == '0':
-        sair()
-opcao()
 
 def sair():
     print("That's all folks :)))")
@@ -126,7 +94,6 @@ def gerarLista():
         listaDecimal.append(num/den)
         i += 1
     return lista
-L = gerarLista()
 
 def somarLista(L):
     res = (0,1)
@@ -152,8 +119,40 @@ def maiorLista(L):
     print("A maior fração é", L[i])
     return maior
 
-maiorLista(L)
 
+def opcao():
+    op = str(input("Insira um dos comandos do menu: "))
+    while op != '0':
+        if op == '1':
+            f = criarFracao()
+        elif op == '2':
+            print(verFracao(simplificarFracao(f)))
+        elif op == '3':
+            f = somarFracao()
+            print(verFracao(simplificarFracao(f)))
+        elif op == '4':
+            f = subtrairFracao()
+            print(verFracao(simplificarFracao(f)))
+        elif op == '5':
+            f = multiplicarFracao()
+            print(verFracao(simplificarFracao(f)))
+        elif op == '6':
+            f = dividirFracao()
+            print(verFracao(simplificarFracao(f)))
+        elif op == '7':
+            lista = gerarLista()
+        elif op == '8':
+            f = somarLista(lista)
+            print(verFracao(simplificarFracao(f)))
+        elif op == '9':
+            f = maiorLista(lista)
+            print(f)
+        else:
+            print("Este número não está nas alternativas, tente novamente :D.\n")
+        op = str(input("Insira um dos comandos do menu: "))
+    if op == '0':
+        sair()
+opcao()
 
 # In[ ]:
 
